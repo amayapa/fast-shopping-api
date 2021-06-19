@@ -2,13 +2,21 @@ const Categories = require("../models/categories.models");
 const Products = require("../models/products.models");
 
 const createCategory = async (req, res) => {
-  const { name } = req.query;
   try {
-    const newCategory = await Categories.create(name);
-    if (newCategory) {
-      res.status(200).send(newCategory);
+    const { name } = req.query;
+    const [category, created] = await Categories.findOrCreate({
+      where: { name },
+    });
+    if (created) {
+      res.status(200).send(category);
+    } else {
+      res.status(409).json({
+        msg: `The category ${name} already exist`,
+        category,
+      });
     }
   } catch (error) {
+    console.log("errrrrorrr", { e: error.message });
     res.status(400).send(error);
     throw error;
   }
