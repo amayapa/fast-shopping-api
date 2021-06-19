@@ -1,4 +1,4 @@
-# Fast Shopping <img src="https://github.com/larts85/Fast-Shopping/blob/master/client/public/logo512.png" width="50px" />
+# Fast Shopping <img src="https://github.com/larts85/fast-fhopping-client/blob/master/client/public/shopping-cart.svg" width="50px" />
 
 ## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and some other technologies. It is a simple shopping cart.
 

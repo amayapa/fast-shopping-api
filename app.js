@@ -25,9 +25,23 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 
 app.use(morgan("dev"));
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://larts85.github.io/fast-shopping-client/",
+];
+const corsErrorMessage =
+  "The CORS policy for this site does not allow access from the specified Origin.";
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        return callback(new Error(corsErrorMessage), false);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   })
 );
