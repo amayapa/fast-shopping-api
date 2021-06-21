@@ -16,7 +16,6 @@ const createCategory = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log("errrrrorrr", { e: error.message });
     res.status(400).send(error);
     throw error;
   }
