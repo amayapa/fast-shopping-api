@@ -30,11 +30,22 @@ const createProduct = async (req, res) => {
 
 const bulkCreateProducts = async (req, res) => {
   const products = req.body || {};
+  const newProducts = [];
   try {
-    const createdProducts = await Products.bulkCreate(products);
-    if (createdProducts) {
-      res.status(200).send(createdProducts);
+    for (product of products) {
+      const createdProduct = await Products.create(product, {
+        include: {
+          model: Categories,
+          as: "categories",
+        },
+      });
+      if (createdProduct) {
+        newProducts.push(createdProduct);
+      } else {
+        newProducts.push("Creation error");
+      }
     }
+    res.status(200).send(createdProduct);
   } catch (error) {
     res.status(400).send(error);
     throw error;
