@@ -49,7 +49,7 @@ app.use(
 app.use("/", routes);
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log("Connected successfully to Database");
 
