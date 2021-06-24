@@ -26,7 +26,11 @@ app.use(urlencoded({ extended: true }));
 
 app.use(morgan("dev"));
 
-const allowedOrigins = ["http://localhost:3000", "https://larts85.github.io"];
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://larts85.github.io",
+  "https://larts85.github.io/fast-shopping-client",
+];
 const corsErrorMessage =
   "The CORS policy for this site does not allow access from the specified Origin.";
 

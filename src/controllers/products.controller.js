@@ -1,3 +1,4 @@
+const { PRODUCT_EXISTS } = require("../constants");
 const Categories = require("../models/categories.models");
 const Products = require("../models/products.models");
 
@@ -16,10 +17,21 @@ const getAllProducts = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const product = req.body || {};
   try {
+    const product = req.body || {};
+    const productExists = await Products.findOne({
+      where: {
+        name: product.name,
+      },
+    });
+    if (productExists) {
+      return res.status(409).send(PRODUCT_EXISTS);
+    }
     const createdProduct = await Products.create(product);
     if (createdProduct) {
+      product.categories.map((categoryId) => {
+        createdProduct.addCategory(categoryId);
+      });
       res.status(200).send(createdProduct);
     }
   } catch (error) {
@@ -29,25 +41,23 @@ const createProduct = async (req, res) => {
 };
 
 const bulkCreateProducts = async (req, res) => {
-  const products = req.body || {};
-  const newProducts = [];
   try {
-    for (product of products) {
-      const createdProduct = await Products.create(product, {
-        include: {
-          model: Categories,
-          as: "categories",
-        },
+    const products = req.body || {};
+    const createdProducts = await Products.bulkCreate(products);
+    if (createdProducts) {
+      createdProducts.map((product) => {
+        const { categories } =
+          products.find(({ name }) => name === product.name) || {};
+        categories &&
+          categories.map((categoryId) => {
+            product.addCategory(categoryId);
+          });
       });
-      if (createdProduct) {
-        newProducts.push(createdProduct);
-      } else {
-        newProducts.push("Creation error");
-      }
+
+      res.status(200).send(createdProducts);
     }
-    res.status(200).send(createdProduct);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).send(error.message);
     throw error;
   }
 };
