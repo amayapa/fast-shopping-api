@@ -2,21 +2,27 @@ const Categories = require("../models/categories.models");
 const Products = require("../models/products.models");
 
 const createCategory = async (req, res) => {
+  const { name } = req.query;
   try {
-    const { name } = req.query;
-    const [category, created] = await Categories.findOrCreate({
-      where: { name },
-    });
-    if (created) {
-      res.status(200).send(category);
-    } else {
-      res.status(409).json({
-        msg: `The category ${name} already exist`,
-        category,
-      });
+    const newCategory = await Categories.create(name);
+    if (newCategory) {
+      res.status(200).send(newCategory);
     }
   } catch (error) {
     res.status(400).send(error);
+    throw error;
+  }
+};
+
+const bulkCreateCategories = async (req, res) => {
+  try {
+    const categories = req.body;
+    const newCategories = await Categories.bulkCreate(categories);
+    if (newCategories) {
+      res.status(200).send(newCategories);
+    }
+  } catch (error) {
+    res.status(400).send(error.message);
     throw error;
   }
 };
@@ -40,5 +46,6 @@ const getAllCategories = async (req, res) => {
 
 module.exports = {
   createCategory,
+  bulkCreateCategories,
   getAllCategories,
 };
