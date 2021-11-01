@@ -1,14 +1,12 @@
 # Fast Shopping <img src="https://github.com/larts85/fast-shopping-client/blob/master/public/shopping-cart.svg" width="50px" />
 
-## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and some other technologies. It is a simple shopping cart.
-
-### **_You can visit the API at this <a href='https://fast-shopping-cart.herokuapp.com/'>URL</a> and checkout this routes_**
+## **_You can visit the API at this <a href='https://fast-shopping-cart.herokuapp.com/'>URL</a> and checkout this routes_**
 
 - /products
 - /categories
 - /orders
 
-### **\*The frontend will be hosting using **GH-Pages** soon. Now you can clone and install this repo and then start the client\***
+### **\*The frontend was created with [React](https://github.com/facebook/create-react-app) and some other technologies. It is a simple shopping cart.. Now you can clone and install this repo and then start the client\***
 
 #### TECHNOLOGIES
 
