@@ -6,7 +6,7 @@
 - /categories
 - /orders
 
-### **\*The frontend was created with [React](https://github.com/facebook/create-react-app) and some other technologies. It is a simple shopping cart.. Now you can clone and install this repo and then start the client\***
+### ***The frontend was created with [React](https://github.com/facebook/create-react-app) and some other technologies. It is a simple shopping cart.. Now you can clone and install this repo and then start the client***
 
 #### TECHNOLOGIES
 
