@@ -2,9 +2,9 @@
 
 ## **_You can visit the API at this <a href='https://ultra-fast-shopping.herokuapp.com/'>URL</a> and checkout this routes_**
 
-- /products
-- /categories
-- /orders
+- [/products](https://ultra-fast-shopping.herokuapp.com/products)
+- [/categories](https://ultra-fast-shopping.herokuapp.com/categories)
+- [/orders](https://ultra-fast-shopping.herokuapp.com/orders)
 
 ### ***The frontend was created with [React](https://github.com/facebook/create-react-app) and some other technologies. It is a simple shopping cart.. Now you can clone and install this repo and then start the client***
 
@@ -18,7 +18,7 @@
 
 ## First Steps
 
-- Open a console and clone this repo
+- Open a console and clone this repo `git clone <http://...>`
 - if you want to use the api in localhost then run npm install, npm start and chage the API_PATH in the config file
 
 This project is running in localhost at port 4000.
