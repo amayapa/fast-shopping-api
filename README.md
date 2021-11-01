@@ -1,6 +1,6 @@
 # Fast Shopping <img src="https://github.com/larts85/fast-shopping-client/blob/master/public/shopping-cart.svg" width="50px" />
 
-## **_You can visit the API at this <a href='https://fast-shopping-cart.herokuapp.com/'>URL</a> and checkout this routes_**
+## **_You can visit the API at this <a href='https://ultra-fast-shopping.herokuapp.com/'>URL</a> and checkout this routes_**
 
 - /products
 - /categories
