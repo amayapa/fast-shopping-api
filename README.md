@@ -18,7 +18,7 @@
 
 ## First Steps
 
-- Open a console and clone this repo `git clone <http://...>`
+- Open a console and clone this repo
 - if you want to use the api in localhost then run npm install, npm start and chage the API_PATH in the config file
 
 This project is running in localhost at port 4000.
